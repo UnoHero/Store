@@ -10,7 +10,7 @@ body{
 body::-webkit-scrollbar{
   display: none;
 }
-ul {
+.headerul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -24,11 +24,11 @@ ul {
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 3px;
   }
-  li {
+  .headerli {
     float: left;
   }
   
-  li a {
+  .headerli a {
     display: block;
     color: white;
     text-align: center;
@@ -39,8 +39,6 @@ ul {
   text-decoration:underline;
   text-decoration-thickness:2.5px;
 }
-
-/*Main*/
 .fa-user-astronaut {
   margin-left: 5300%;
 }
@@ -48,6 +46,9 @@ ul {
   margin-left:5000%;
 
 }
+
+/*Main*/
+
 #main-logo{
   transform: scale(1);
   display: block;
@@ -60,16 +61,27 @@ ul {
 }
 .news-box{
   background-color:#171717;
-  display: block;
+  display: table;
   margin-left: auto;
   margin-right: auto;
-  width: 85%;
-  position:relative;
-  top:-30px;
-  height: 400px;
+  width: 65%;
+  position: relative;
+  top:-10px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px white;
 }
+.table{
+  display: table;
+  margin: 0 auto;
+}
+#news-box-ul{
+  list-style: none;
+  padding-top: 20px;
+}
+#news-box-ul li {
+  display: inline;
+}
+
 h3{
   color:white;
   font-size: x-large;
@@ -80,19 +92,80 @@ h3{
   padding:20px;
 }
 
+.chesspic{
+  height: 225px;
+  padding: 25px;
+}
+.dicepic{
+  height: 225px;
+  padding: 25px;
+}
+.potpic{
+  height: 225px;
+  padding: 25px;
+}
+.chessdes{
+  position:fixed;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  padding: 10px;
+  margin: 10px;
+  top: 670px;
+  left:440px;
+  z-index: 11;
+}
+.dicedes{
+  position:fixed;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  padding: 10px;
+  margin: 10px;
+  top: 670px;
+  left:850px;
+  z-index: 11;
+}
+.potdes{
+  position:fixed;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  padding: 10px;
+  margin: 10px;
+  top: 670px;
+  left: 1190px;
+  z-index: 11;
+}
+
 /*Store*/
 /*About*/
+/*LogInn*/
+.loginnul{
+  list-style: none;
+  line-height: 50px;
+}
+.loginnul{
+
+}
+/*Singinn*/
 /*User*/
 .logbox{
   background-color:#171717;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  padding-top:40px;
   width: 40%;
   position:relative;
   top: 150px;
   height: 700px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px white;
+  color: white;
+  text-align: center;
+  font-size: x-large;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
 }
 

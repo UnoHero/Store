@@ -1,3 +1,4 @@
+// all
 import { initializeApp } from "firebase/app"
 import { getFirestore, collection, onSnapshot, addDoc, deleteDoc, doc, query, where, orderBy, serverTimestamp, getDoc} from "firebase/firestore"
 
@@ -29,13 +30,48 @@ onSnapshot(colRef, (snapshot) => {
 })
 
 //get single doc
-const docRef = doc(db, "Products", "UBbAOFmYPLMx64xSHe8p")
 
-onSnapshot(docRef, (doc) => {
-    console.log(doc.data(), doc.id)
-})
+
+
+
 
 // adding documents
 
 
 //deleting documents
+
+
+// highlights
+//chess
+const chessdocRef = doc(db, "Products", "UBbAOFmYPLMx64xSHe8p")
+onSnapshot(chessdocRef, (doc) => {
+    console.log(doc.data().picture)
+    const chesspic = doc.data().picture
+    const chessadd = document.querySelector(".chesspicpin")
+    chessadd.innerHTML += `<img class="chesspic" src=${chesspic} alt="3D printed Chess Pice Set">`
+  //  chessadd.innerHTML += `<h4 class="highdes">3D printed Chess pice set.  200KR</h4>`
+
+})
+//dice
+const dicedocRef = doc(db, "Products", "Clf3TpeO1zTbEdjbLLJB")
+onSnapshot(dicedocRef, (doc) => {
+    console.log(doc.data().picture)
+    const dicepic = doc.data().picture
+    const diceadd = document.querySelector(".dicepicpin")
+    diceadd.innerHTML += `<img class="dicepic" src=${dicepic} alt="3D printed 6 sided Dice">`
+//    diceadd.innerHTML += `<h4 class="highdes">3D printed Dice set.  43KR</h4>`
+
+})
+//pot
+const potdocRef = doc(db, "Products", "QCoLQMXXvxVaJoavJjJR")
+onSnapshot(potdocRef, (doc) => {
+    console.log(doc.data().picture)
+    const potpic = doc.data().picture
+    const potadd = document.querySelector(".potpicpin")
+    potadd.innerHTML += `<img class="potpic" src=${potpic} alt="3D printed flower Pot">`
+  //  potadd.innerHTML += `<h4 class="highdes">3D printed Flower Pot.  50KR</h4>`
+
+})
+// store
+
+//user
