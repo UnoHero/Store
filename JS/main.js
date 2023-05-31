@@ -1,7 +1,5 @@
 import { initializeApp } from "firebase/app"
-import { getFirestore, collection, getDocs,
-    addDoc
-} from "firebase/firestore"
+import { getFirestore, collection, onSnapshot, addDoc, deleteDoc, doc, query, where, orderBy, serverTimestamp, getDoc} from "firebase/firestore"
 
 const firebaseConfig = {
     apiKey: "AIzaSyDDDgpw0DSPgWhYhScCZWnu_iT1LQRDoGg",
@@ -10,10 +8,10 @@ const firebaseConfig = {
     storageBucket: "buttik-b0311.appspot.com",
     messagingSenderId: "607072455553",
     appId: "1:607072455553:web:217b47831d0309f6213680"
-};
+  };
 
 // init firebase app
-initializeApp(firebaseConfig)
+initializeApp(firebaseConfig);
 
 // init services
 const db = getFirestore()
@@ -21,31 +19,23 @@ const db = getFirestore()
 // colection ref
 const colRef = collection(db, "Products")
 
-// get collection data
-getDocs(colRef)
-    .then((snapshot) => {
-        let Products = []
-        snapshot.docs.forEach((doc) => {
-            Products.push({ ...doc.data(), id: doc.id })
-        })
-        console.log(Products)
+// real time/get collection data
+onSnapshot(colRef, (snapshot) => {
+    let Products = []
+    snapshot.docs.forEach((doc) => {
+        Products.push({ ...doc.data(), id: doc.id })
     })
-    .catch(err => {
-        console.log(err.message)
-    })
+    console.log(Products)
+})
+
+//get single doc
+const docRef = doc(db, "Products", "UBbAOFmYPLMx64xSHe8p")
+
+onSnapshot(docRef, (doc) => {
+    console.log(doc.data(), doc.id)
+})
 
 // adding documents
-const addProductsForm = document.querySelector(".add")
-addProductsForm.addEventListener("submit", (e) => {
-    e.preventDefault()
 
-
-})
 
 //deleting documents
-const deleteProductsForm = document.querySelector(".delete")
-deleteProductsForm.addEventListener("delete", (e) => {
-    e.preventDefault()
-
-    
-})
