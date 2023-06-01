@@ -1,6 +1,6 @@
 // all
 import { initializeApp } from "firebase/app"
-import { getFirestore, collection, onSnapshot, addDoc, deleteDoc, doc, query, where, orderBy, serverTimestamp, getDoc} from "firebase/firestore"
+import { getFirestore, collection, onSnapshot, addDoc, deleteDoc, doc, query, where, orderBy, serverTimestamp, getDoc, updateDoc} from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDDDgpw0DSPgWhYhScCZWnu_iT1LQRDoGg",
@@ -17,11 +17,14 @@ initializeApp(firebaseConfig);
 // init services
 const db = getFirestore()
 
+
 // colection ref
-const colRef = collection(db, "Products")
+const colProd = collection(db, "Products")
+const colUser = collection(db, "Users")
+
 
 // real time/get collection data
-onSnapshot(colRef, (snapshot) => {
+onSnapshot(colProd, (snapshot) => {
     let Products = []
     snapshot.docs.forEach((doc) => {
         Products.push({ ...doc.data(), id: doc.id })
@@ -29,10 +32,14 @@ onSnapshot(colRef, (snapshot) => {
     console.log(Products)
 })
 
+onSnapshot(colUser, (snapshot) => {
+  let Users = []
+  snapshot.docs.forEach((doc) => {
+      Users.push({ ...doc.data(), id: doc.id })
+  })
+  console.log(Users)
+})
 //get single doc
-
-
-
 
 
 // adding documents
@@ -74,4 +81,51 @@ onSnapshot(potdocRef, (doc) => {
 })
 // store
 
-//user
+// user-loginn-logout
+
+
+//signup
+
+//logging in and out
+
+console.log(location.href)
+console.log(localStorage)
+const log = localStorage.getItem("login")
+
+if (location.href === "http://127.0.0.1:5500/VG1/Store/HTML/user.html" && log === "false") {
+  location.assign("http://127.0.0.1:5500/VG1/Store/HTML/loginn.html")
+} else {
+  console.log("You are in the right place")
+}
+
+//passwords //mails
+onSnapshot(colUser, (snapshot) => {
+  let passwords = []
+  snapshot.docs.forEach((doc) => {
+      passwords.push(doc.data().password)
+  })
+
+  let mails = []
+  snapshot.docs.forEach((doc) => {
+      mails.push(doc.data().mail)
+  })
+
+  console.log(passwords)
+  console.log(mails)
+ 
+})
+
+
+
+
+const loginForm = document.querySelector("loginform")
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault()
+
+  const email = loginForm.email.value
+  const password = loginForm.password.value
+
+  
+})
+
+

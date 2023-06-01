@@ -141,9 +141,12 @@ h3{
 /*Store*/
 /*About*/
 /*LogInn*/
-.loginnul{
+.loginform{
   list-style: none;
   line-height: 50px;
+  margin-right: 220px;
+  margin-left: 220px;
+
 }
 .loginnul{
 
@@ -169,3 +172,8 @@ h3{
   letter-spacing: 1px;
 }
 
+#userlogo{
+  transform: scale(0.30);
+  margin-left: 355px;
+  margin-top:-155px;
+}

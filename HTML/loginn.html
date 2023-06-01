@@ -42,32 +42,25 @@
         <div>
             <h4>Log inn</h4>
             <div>
-                <ul class="loginnul">
-                    <li class="loginnli">
-                        <label for="uname"><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" name="uname" required>
-                    </li>
-                    <li>
-                        <label for="psw"><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
-                    </li>
-                    <li>
-                        <button type="submit">Login</button>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="checkbox"  name="remember"> Remember me
-                          </label>
-                    </li>
-                    <li>
-                        <div class="container">
-                            <span class="psw">Forgot <a href="#">password?</a></span>
-                          </div>
-                    </li>
-                    <li>
-                        <a href="/VG1/Store/HTML/signinn.html"><h4>Sign inn</h4></a>
-                    </li>
-                </ul>
+                <form class="loginform">
+                    <label for="email">Mail</label>
+                    <input type="email" placeholder="Enter Email" name="email" required>
+                
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+                
+                    <label>
+                        <input type="checkbox"  name="remember"> Remember me
+                    </label>
+                    <br>
+                    <button>Login</button>
+
+                    <div class="container">
+                        <span class="psw">Forgot <a href="#">password?</a></span>
+                        </div>
+                
+                    <a href="/VG1/Store/HTML/signinn.html"><h4>Sign inn</h4></a>
+                </form>
             </div>           
         </div>
     </div>
