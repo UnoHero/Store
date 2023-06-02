@@ -86,6 +86,19 @@ onSnapshot(potdocRef, (doc) => {
 
 //signup
 
+const signupForm = document.querySelector(".signupform")
+signupForm.addEventListener("submit", (e) => {
+  e.preventDefault()
+
+  const username = signupForm.uname.value
+  const fullname = signupForm.fullname.value
+  const email = signupForm.email.value
+  const age = signupForm.age.value 
+  const password = signupForm.password.value
+
+
+})
+
 //logging in and out
 
 console.log(location.href)
@@ -101,31 +114,41 @@ if (location.href === "http://127.0.0.1:5500/VG1/Store/HTML/user.html" && log ==
 //passwords //mails
 onSnapshot(colUser, (snapshot) => {
   let passwords = []
-  snapshot.docs.forEach((doc) => {
-      passwords.push(doc.data().password)
-  })
-
   let mails = []
+
   snapshot.docs.forEach((doc) => {
-      mails.push(doc.data().mail)
+    const data = doc.data()
+    passwords.push(data.password)
+    mails.push(data.mail)
   })
 
-  console.log(passwords)
-  console.log(mails)
- 
+  const loginForm = document.querySelector(".loginform")
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    const email = loginForm.email.value
+    const password = loginForm.password.value
+
+    const emailIndex = mails.indexOf(email)
+    if (emailIndex !== -1 && passwords[emailIndex] === password) {
+      // Email and password are correct
+      console.log("Login successful")
+      localStorage.setItem("login", true)
+      location.assign("http://127.0.0.1:5500/VG1/Store/HTML/user.html")
+      
+      loginForm.reset()
+    } else {
+      // Invalid email or password
+      console.log("Invalid email or password")
+      
+    }
+  })
 })
 
+//logg out
 
-
-
-const loginForm = document.querySelector("loginform")
-loginForm.addEventListener("submit", (e) => {
-  e.preventDefault()
-
-  const email = loginForm.email.value
-  const password = loginForm.password.value
-
-  
+const logout = document.querySelector(".logout")
+logout.addEventListener("click", () => {
+  localStorage.setItem("login", false)
+  location.assign("http://127.0.0.1:5500/VG1/Store/HTML/loginn.html")
 })
-
-
