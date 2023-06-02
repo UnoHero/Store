@@ -85,21 +85,40 @@ onSnapshot(potdocRef, (doc) => {
 
 
 //signup
-
+let user = 4
 const signupForm = document.querySelector(".signupform")
 signupForm.addEventListener("submit", (e) => {
   e.preventDefault()
 
-  const username = signupForm.uname.value
-  const fullname = signupForm.fullname.value
-  const email = signupForm.email.value
-  const age = signupForm.age.value 
-  const password = signupForm.password.value
+  const now = new Date();
+  const d = now.getDate();
+  const m = now.getMonth() + 1;
+  const y = now.getFullYear();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
 
+  const fulldate = (`${m}/${d}/${y} ${hours}.${minutes}.${seconds}`);
+  addDoc(colUser, {
+    admin: false,
+    age: signupForm.age.value ,
+    date: fulldate,
+    mail: signupForm.email.value,
+    name: signupForm.fullname.value,
+    password: signupForm.password.value,
+    user: user, 
+  })
+  .then(() => {
+    signupForm.reset()
+    location.assign("http://127.0.0.1:5500/VG1/Store/HTML/user.html")
+    user++
+  })
 
 })
 
+
 //logging in and out
+
 
 console.log(location.href)
 console.log(localStorage)
@@ -146,7 +165,6 @@ onSnapshot(colUser, (snapshot) => {
 })
 
 //logg out
-
 const logout = document.querySelector(".logout")
 logout.addEventListener("click", () => {
   localStorage.setItem("login", false)

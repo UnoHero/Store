@@ -152,6 +152,21 @@ h3{
 
 }
 /*Singinn*/
+.signupform{
+  list-style: none;
+  line-height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+.signup{
+  margin: 60px;
+  position: absolute;
+  top: 500px;
+  right: 290px;
+  padding: 10px;
+ 
+}
 /*User*/
 .logbox{
   background-color:#171717;
@@ -176,4 +191,7 @@ h3{
   transform: scale(0.30);
   margin-left: 355px;
   margin-top:-155px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow:0px 0px 50px 10px white;
 }
